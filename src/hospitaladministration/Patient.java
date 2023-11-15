@@ -10,22 +10,22 @@ package hospitaladministration;
  */
 public class Patient {
     
-    private String dob;
+    private String birthDate;
     private String name;
     private String bloodType;
     private int ID;
     private static int currentID = 1;
     
     public Patient(String dob, String name, String bloodType) {
-        this.dob = dob;
+        this.birthDate = dob;
         this.name = name;
         this.bloodType = bloodType;
         this.ID = currentID;
         currentID++;
     }
 
-    public String getDob() {
-        return dob;
+    public String getBirthDate() {
+        return birthDate;
     }
 
     public String getName() {

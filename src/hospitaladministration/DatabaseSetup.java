@@ -17,7 +17,7 @@ public class DatabaseSetup {
     
     final static String DB_BASE_URL = "jdbc:mysql://localhost";
     final static String USER = "OOC2023";
-    final static String PASSWORD = "password69";
+    final static String PASSWORD = "OOC2023";
     
     public static boolean setupDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -26,10 +26,14 @@ public class DatabaseSetup {
               Statement stmt = conn.createStatement();)
       {
           
-      stmt.execute("CREATE DATABASE IF NOT EXISTS 'hospital';");
-      stmt.execute("USE 'hospital';");
-      String sql = "CREATE TABLE IF NOT EXISTS 'patientData' (" + "'name' VARCHAR[255]," + "'birthdate' DATE,"
-              + "'bloodType' VARCHAR[2]," + "'id' INT[10]," 
+      stmt.execute("CREATE DATABASE IF NOT EXISTS hospital;");
+      stmt.execute("USE hospital;");
+      String sql = 
+              "CREATE TABLE IF NOT EXISTS patientData (" 
+              + "name VARCHAR(255)," 
+              + "birthdate DATE,"
+              + "bloodType VARCHAR(2)," 
+              + "id INT(10)" 
               + ");";
               stmt.execute(sql);
               return true;
