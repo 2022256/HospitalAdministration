@@ -13,11 +13,7 @@ import java.sql.Statement;
  *
  * @author 4istik
  */
-public class DatabaseSetup {
-    
-    final static String DB_BASE_URL = "jdbc:mysql://localhost";
-    final static String USER = "OOC2023";
-    final static String PASSWORD = "OOC2023";
+public class DatabaseSetup extends Database {
     
     public static boolean setupDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -26,10 +22,10 @@ public class DatabaseSetup {
               Statement stmt = conn.createStatement();)
       {
           
-      stmt.execute("CREATE DATABASE IF NOT EXISTS hospital;");
-      stmt.execute("USE hospital;");
+      stmt.execute("CREATE DATABASE IF NOT EXISTS " + DB_NAME + ";");
+      stmt.execute("USE " + DB_NAME + ";");
       String sql = 
-              "CREATE TABLE IF NOT EXISTS patientData (" 
+              "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" 
               + "name VARCHAR(255)," 
               + "birthdate DATE,"
               + "bloodType VARCHAR(2)," 
